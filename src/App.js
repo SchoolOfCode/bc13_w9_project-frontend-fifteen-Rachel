@@ -7,6 +7,9 @@ const convertToNote = (dto) => {
 	return { id: dto.id, text: dto.content, date: new Date(dto.time).toLocaleDateString('en-US') };
 };
 
+//test
+
+// Get a list of notes.
 const App = () => {
 	const [notes, setNotes] = useState([]);
 
@@ -20,8 +23,9 @@ const App = () => {
   			.then((response) => {
 				setNotes(response.payload.map(dto => convertToNote(dto)));
 			});
-	}, []);
+	}, []);// Get a list of notes.
 
+		// Add a note.
 	const addNote = async (text) => {
 		fetch('http://localhost:3001/api/notes', {
 			method: 'POST',
@@ -36,6 +40,7 @@ const App = () => {
 		});
 	};
 
+		// Delete a note.
 	const deleteNote = (id) => {
 		fetch(`http://localhost:3001/api/notes/${id}`, {
 			method: 'DELETE',
@@ -47,6 +52,7 @@ const App = () => {
 		});
 	};
 
+		// Returns a div for the container.
 	return (
 		<div className={`${darkMode && 'dark-mode'}`}>
 			<div className='container'>
