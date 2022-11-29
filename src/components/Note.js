@@ -1,6 +1,7 @@
 
 import { MdDeleteForever } from 'react-icons/md';
 
+// Deletes a note forever.
 const Note = ({ id, text, date, handleDeleteNote }) => {
 	return (
 		<div className='note'>

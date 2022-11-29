@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdSearch } from 'react-icons/md';
 
+// Creates a search div.
 const Search = ({ handleSearchNote }) => {
 	return (
 		<div className='search'>

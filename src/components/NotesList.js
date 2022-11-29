@@ -1,6 +1,7 @@
 import Note from './Note';
 import AddNote from './AddNote';
 
+// Creates the notes - list div.
 const NotesList = ({
 	notes,
 	handleAddNote,
