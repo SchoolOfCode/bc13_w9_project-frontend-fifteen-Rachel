@@ -7,7 +7,6 @@ const convertToNote = (dto) => {
 	return { id: dto.id, text: dto.content, date: new Date(dto.time).toLocaleDateString('en-US') };
 };
 
-//test
 
 // Get a list of notes.
 const App = () => {
