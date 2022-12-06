@@ -3,7 +3,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 		'Droid Sans', 'Helvetica Neue', sans-serif;
-	background-color: transparent;
+	background-color: #003E1F;
 }
 
 
@@ -73,7 +73,8 @@ textarea:focus {
 }
 
 .note {
-	background-color: #EDCF97;
+	color:white;
+	background-color: #2b0606;
 	border-radius: 10px;
 	padding: 1rem;
 	min-height: 170px;
@@ -92,7 +93,7 @@ textarea:focus {
 
 .note:nth-child(4n + 2) {
 	color: whitesmoke;
-	background-color: #0B6E4F;
+	background-color: #d19813;
 	margin: 1%;
 }
 
