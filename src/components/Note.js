@@ -1,21 +1,17 @@
-
-import { MdDeleteForever } from 'react-icons/md';
-
 // Deletes a note forever.
-const Note = ({ id, text, date, handleDeleteNote }) => {
+export default function Note ({ id, text, date, handleDeleteNote }) {
 	return (
 		<div className='note'>
 			<span>{text}</span>
 			<div className='note-footer'>
 				<small>{date}</small>
-				<MdDeleteForever
+				<button
 					onClick={() => handleDeleteNote(id)}
 					className='delete-icon'
 					size='1.3em'
-				/>
+				>DELETE</button>
 			</div>
 		</div>
 	);
 };
 
-export default Note;

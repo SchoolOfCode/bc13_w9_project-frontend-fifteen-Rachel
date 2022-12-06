@@ -4,25 +4,32 @@ import Search from './components/Search';
 import Header from './components/Header';
 
 const convertToNote = (dto) => {
-	return { id: dto.id, text: dto.content, date: new Date(dto.time).toLocaleDateString('en-US') };
+	return { id: dto.id, text: dto.content, date: new Date(dto.time).toLocaleDateString('en-GB') };
 };
 
+//test
 
 // Get a list of notes.
-const App = () => {
+export default function App  () {
 	const [notes, setNotes] = useState([]);
 
 	const [searchText, setSearchText] = useState('');
 
 	const [darkMode, setDarkMode] = useState(false);
 
+
+
 	useEffect(() => {
-		fetch('http://localhost:3001/api/notes')
-  			.then((response) => response.json())
-  			.then((response) => {
-				setNotes(response.payload.map(dto => convertToNote(dto)));
-			});
-	}, []);// Get a list of notes.
+        async function getNotes () {
+            const response = await fetch ('http://localhost:3001/api/notes', {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json'},
+            })
+            const data = await response.json()
+            const note = data.payload
+			setNotes(note.map(dto => convertToNote(dto)));
+		} getNotes()
+	}, []);
 
 		// Add a note.
 	const addNote = async (text) => {
@@ -68,5 +75,3 @@ const App = () => {
 		</div>
 	);
 };
-
-export default App;

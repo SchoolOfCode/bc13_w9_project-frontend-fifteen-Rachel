@@ -2,11 +2,11 @@ import Note from './Note';
 import AddNote from './AddNote';
 
 // Creates the notes - list div.
-const NotesList = ({
+export default function NotesList ({
 	notes,
 	handleAddNote,
 	handleDeleteNote,
-}) => {
+}) {
 	return (
 		<div className='notes-list'>
 			{notes.map((note) => (
@@ -23,4 +23,3 @@ const NotesList = ({
 	);
 };
 
-export default NotesList;
