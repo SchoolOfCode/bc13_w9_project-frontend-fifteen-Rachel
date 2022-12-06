@@ -3,11 +3,6 @@ import NotesList from './components/NotesList';
 import Search from './components/Search';
 import Header from './components/Header';
 
-const convertToNote = (dto) => {
-	return { id: dto.id, text: dto.content, date: new Date(dto.time).toLocaleDateString('en-GB') };
-};
-
-//test
 
 // Get a list of notes.
 export default function App  () {
@@ -27,37 +22,30 @@ export default function App  () {
             })
             const data = await response.json()
             const note = data.payload
-			console.log(note)
 			setNotes(note);
 		} getNotes()
 	}, []);
 
 		// Add a note.
 	const addNote = async (text) => {
-		fetch('http://localhost:3001/api/notes', {
+		const response = await fetch('http://localhost:3001/api/notes', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({ content: text }),
 		})
-		.then((response) => response.json())
-		.then((response) => {
-			console.log("Whatis in here", response.payload);
-			setNotes([...notes, convertToNote(response.payload)]);
-		});
+		const data = await response.json()
+        const note = data.payload
+		setNotes([...notes, note]);
+		
 	};
 
-		// Delete a note.
 	const deleteNote = async (id) => {
-		const response = await fetch(`http://localhost:3001/api/notes/${id}`, {
+		await fetch(`http://localhost:3001/api/notes/${id}`, {
 			method: 'DELETE',
 		})
-		const data = await response.json()
-		.then((response) => {
-			const newNotes = notes.filter(note => note.id !== id);
-			setNotes(newNotes);
-		});
+		setNotes(notes.filter((notes)=> notes.id !== id))
 	};
 
 		// Returns a div for the container.

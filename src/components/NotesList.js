@@ -8,7 +8,7 @@ export default function NotesList ({
 	handleAddNote,
 	handleDeleteNote,
 }) 
-{ console.log("what is in here", notes)
+{ 
 	return (
 		<div className='notes-list'>
 			{notes.map((note) => (
