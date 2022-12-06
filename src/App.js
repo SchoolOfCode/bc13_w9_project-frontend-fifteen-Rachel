@@ -27,7 +27,8 @@ export default function App  () {
             })
             const data = await response.json()
             const note = data.payload
-			setNotes(note.map(dto => convertToNote(dto)));
+			console.log(note)
+			setNotes(note);
 		} getNotes()
 	}, []);
 
@@ -42,16 +43,17 @@ export default function App  () {
 		})
 		.then((response) => response.json())
 		.then((response) => {
+			console.log("Whatis in here", response.payload);
 			setNotes([...notes, convertToNote(response.payload)]);
 		});
 	};
 
 		// Delete a note.
-	const deleteNote = (id) => {
-		fetch(`http://localhost:3001/api/notes/${id}`, {
+	const deleteNote = async (id) => {
+		const response = await fetch(`http://localhost:3001/api/notes/${id}`, {
 			method: 'DELETE',
 		})
-		.then((response) => response.json())
+		const data = await response.json()
 		.then((response) => {
 			const newNotes = notes.filter(note => note.id !== id);
 			setNotes(newNotes);
@@ -66,7 +68,7 @@ export default function App  () {
 				<Search handleSearchNote={setSearchText} />
 				<NotesList
 					notes={notes.filter((note) =>
-						note.text.toLowerCase().includes(searchText)
+						note.content.toLowerCase().includes(searchText)
 					)}
 					handleAddNote={addNote}
 					handleDeleteNote={deleteNote}
