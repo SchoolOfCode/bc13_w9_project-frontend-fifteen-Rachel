@@ -1,22 +1,15 @@
-import Note from './Delete';
+import Card from './Card';
 import AddNote from './AddNote'
 
-
-// Creates the notes - list div.
-export default function NotesList ({
-	notes,
-	handleAddNote,
-	handleDeleteNote,
-}) 
-{ 
+export default function NotesList ({ notes, handleAddNote, handleDeleteNote}) { 
 	return (
 		<div className='notes-list'>
 			{notes.map((note) => (
-				<Note
+				<Card
 					key={note.id}
 					id={note.id}
 					text={note.content}
-					date={note.date}
+					date={note.time.split("T").shift()}
 					handleDeleteNote={handleDeleteNote}
 				/>
 			))}
@@ -25,3 +18,4 @@ export default function NotesList ({
 	);
 };
 
+//note.stime.toLocaleDateString('en-GB')

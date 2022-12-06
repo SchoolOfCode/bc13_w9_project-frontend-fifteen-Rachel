@@ -3,8 +3,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 		'Droid Sans', 'Helvetica Neue', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	background-color: transparent;
 }
 
 
@@ -14,9 +13,11 @@ code {
 }
 
 .header {
+	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background-color: #003E1F;
 }
 
 .dark-mode {
@@ -27,41 +28,32 @@ code {
 	color: white;
 }
 
-.container {
-	max-width: 960px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-right: 15px;
-	padding-left: 15px;
-	min-height: 100vh;
-}
-
 .notes-list {
-	display: grid;
-	grid-gap: 1rem;
-	grid-template-columns: repeat(
-		auto-fill,
-		minmax(250px, 1fr)
-	);
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2%;
+
 }
 
 .note.new {
-	background-color: #e7a8dd;
+	background-color: #EDCF97;
+	margin: 1%;
 }
 
 .dark-mode .note.new {
-	background-color: #e7a8dd;
+	background-color: #EDCF97;
+	margin: 1%;
 }
 
 textarea {
 	border: none;
 	resize: none;
-	background-color: #f0e8f2;
+	background-color: rgb(247, 234, 218);
 	
 }
 
 .dark-mode textarea {
-	background-color: #f0e8f2;
+	background-color: papayawhip;
 }
 
 textarea:focus {
@@ -69,13 +61,11 @@ textarea:focus {
 }
 
 .save {
-	background-color: #e1e1e1;
+	background-color: white;
 	border: none;
 	border-radius: 15px;
 	padding: 5px 10px 5px 10px;
 }
-
-
 
 .save:hover {
 	background-color: #ededed;
@@ -83,7 +73,7 @@ textarea:focus {
 }
 
 .note {
-	background-color: #fef68a;
+	background-color: #EDCF97;
 	border-radius: 10px;
 	padding: 1rem;
 	min-height: 170px;
@@ -91,18 +81,25 @@ textarea:focus {
 	flex-direction: column;
 	justify-content: space-between;
 	white-space: pre-wrap;
+	margin: 1%;
 }
 
 .note:nth-child(4n + 1) {
-	background-color: #e69dd5;
+	color: whitesmoke;
+	background-color: #A22522;
+	margin: 1%;
 }
 
 .note:nth-child(4n + 2) {
-	background-color: #a8e6cf;
+	color: whitesmoke;
+	background-color: #0B6E4F;
+	margin: 1%;
 }
 
 .note:nth-child(4n + 3) {
-	background-color: #dcedc1;
+	color: whitesmoke;
+	background-color: #0F0326;
+	margin: 1%;
 }
 
 .note-footer {

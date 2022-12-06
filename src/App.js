@@ -4,6 +4,7 @@ import Search from './components/Search';
 import Header from './components/Header';
 
 
+
 // Get a list of notes.
 export default function App  () {
 	const [notes, setNotes] = useState([]);
@@ -12,7 +13,7 @@ export default function App  () {
 
 	const [darkMode, setDarkMode] = useState(false);
 
-
+	
 
 	useEffect(() => {
         async function getNotes () {
@@ -30,9 +31,7 @@ export default function App  () {
 	const addNote = async (text) => {
 		const response = await fetch('http://localhost:3001/api/notes', {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
+			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ content: text }),
 		})
 		const data = await response.json()
@@ -48,6 +47,15 @@ export default function App  () {
 		setNotes(notes.filter((notes)=> notes.id !== id))
 	};
 
+	// const editNote = async (text, id) => {
+	// 	await fetch(`http://localhost:3001/api/notes/${id}`, {
+	// 		method: 'PATCH',
+	// 		headers: {'Content-Type': 'application/json'},
+	// 		body: JSON.stringify({ content: text }),
+	// 	})
+	// 	setNotes(notes.map((notes) => notes.id === id ? notes.content:text))
+	// }
+	
 		// Returns a div for the container.
 	return (
 		<div className={`${darkMode && 'dark-mode'}`}>
