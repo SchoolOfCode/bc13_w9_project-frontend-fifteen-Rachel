@@ -74,7 +74,7 @@ textarea:focus {
 
 .note {
 	color:white;
-	background-color: #2b0606;
+	background-color: #A22522;
 	border-radius: 10px;
 	padding: 1rem;
 	min-height: 170px;
@@ -99,7 +99,7 @@ textarea:focus {
 
 .note:nth-child(4n + 3) {
 	color: whitesmoke;
-	background-color: #0F0326;
+	background-color: #180286;
 	margin: 1%;
 }
 

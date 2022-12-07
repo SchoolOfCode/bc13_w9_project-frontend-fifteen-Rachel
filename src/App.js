@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
-import Header from './components/Header';
 import Edit from './components/Edit';
 
 
@@ -43,13 +42,16 @@ export default function App  () {
 	};
 
 	const editNote = async (text, id) => {
-		console.log("edit text is being passed ?", text);
-		await fetch(`http://localhost:3001/api/notes/${id}`, {
+		const response = await fetch(`http://localhost:3001/api/notes/${id}`, {
 			method: 'PATCH',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ content: text }),
 		})
-		setNotes(notes.map((notes) => notes.id === id ? notes.content:text))
+		const data = await response.json()
+        const change = data.payload // This is an object of the note with id time and content
+		const index = notes.findIndex(object => {return object.id === 33})
+		notes.splice(index, 1)
+		setNotes([...notes, change]) 
 	}
 	
 		// Returns a div for the container.
